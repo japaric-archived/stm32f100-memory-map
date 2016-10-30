@@ -1,0 +1,7 @@
+[package]
+authors = ["Jorge Aparicio <japaricious@gmail.com>"]
+name = "stm32f100-memory-map"
+version = "0.1.0"
+
+[dependencies]
+volatile-register = "0.1.2"
