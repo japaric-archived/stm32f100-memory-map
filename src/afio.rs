@@ -24,6 +24,19 @@ pub struct Evcr {
 }
 
 impl Evcr {
+    pub fn read_bits(&self) -> u32 {
+        self.register.read()
+    }
+    pub unsafe fn modify_bits<F>(&mut self, f: F)
+        where F: FnOnce(&mut u32)
+    {
+        let mut bits = self.register.read();
+        f(&mut bits);
+        self.register.write(bits);
+    }
+    pub unsafe fn write_bits(&mut self, bits: u32) {
+        self.register.write(bits);
+    }
     pub fn modify<F>(&mut self, f: F)
         where for<'w> F: FnOnce(&EvcrR, &'w mut EvcrW) -> &'w mut EvcrW
     {
@@ -80,7 +93,7 @@ pub struct EvcrW {
 impl EvcrW {
     # [ doc = r" Reset value" ]
     pub fn reset_value() -> Self {
-        EvcrW { bits: 0u32 }
+        EvcrW { bits: 0 }
     }
     # [ doc = "Bits 0:3 - Pin selection" ]
     pub fn pin(&mut self, value: u8) -> &mut Self {
@@ -116,6 +129,19 @@ pub struct Mapr {
 }
 
 impl Mapr {
+    pub fn read_bits(&self) -> u32 {
+        self.register.read()
+    }
+    pub unsafe fn modify_bits<F>(&mut self, f: F)
+        where F: FnOnce(&mut u32)
+    {
+        let mut bits = self.register.read();
+        f(&mut bits);
+        self.register.write(bits);
+    }
+    pub unsafe fn write_bits(&mut self, bits: u32) {
+        self.register.write(bits);
+    }
     pub fn modify<F>(&mut self, f: F)
         where for<'w> F: FnOnce(&MaprR, &'w mut MaprW) -> &'w mut MaprW
     {
@@ -214,7 +240,7 @@ pub struct MaprW {
 impl MaprW {
     # [ doc = r" Reset value" ]
     pub fn reset_value() -> Self {
-        MaprW { bits: 0u32 }
+        MaprW { bits: 0 }
     }
     # [ doc = "Bit 0 - SPI1 remapping" ]
     pub fn spi1_remap(&mut self, value: bool) -> &mut Self {
@@ -334,6 +360,19 @@ pub struct Exticr1 {
 }
 
 impl Exticr1 {
+    pub fn read_bits(&self) -> u32 {
+        self.register.read()
+    }
+    pub unsafe fn modify_bits<F>(&mut self, f: F)
+        where F: FnOnce(&mut u32)
+    {
+        let mut bits = self.register.read();
+        f(&mut bits);
+        self.register.write(bits);
+    }
+    pub unsafe fn write_bits(&mut self, bits: u32) {
+        self.register.write(bits);
+    }
     pub fn modify<F>(&mut self, f: F)
         where for<'w> F: FnOnce(&Exticr1R, &'w mut Exticr1W) -> &'w mut Exticr1W
     {
@@ -397,7 +436,7 @@ pub struct Exticr1W {
 impl Exticr1W {
     # [ doc = r" Reset value" ]
     pub fn reset_value() -> Self {
-        Exticr1W { bits: 0u32 }
+        Exticr1W { bits: 0 }
     }
     # [ doc = "Bits 0:3 - EXTI0 configuration" ]
     pub fn exti0(&mut self, value: u8) -> &mut Self {
@@ -439,6 +478,19 @@ pub struct Exticr2 {
 }
 
 impl Exticr2 {
+    pub fn read_bits(&self) -> u32 {
+        self.register.read()
+    }
+    pub unsafe fn modify_bits<F>(&mut self, f: F)
+        where F: FnOnce(&mut u32)
+    {
+        let mut bits = self.register.read();
+        f(&mut bits);
+        self.register.write(bits);
+    }
+    pub unsafe fn write_bits(&mut self, bits: u32) {
+        self.register.write(bits);
+    }
     pub fn modify<F>(&mut self, f: F)
         where for<'w> F: FnOnce(&Exticr2R, &'w mut Exticr2W) -> &'w mut Exticr2W
     {
@@ -502,7 +554,7 @@ pub struct Exticr2W {
 impl Exticr2W {
     # [ doc = r" Reset value" ]
     pub fn reset_value() -> Self {
-        Exticr2W { bits: 0u32 }
+        Exticr2W { bits: 0 }
     }
     # [ doc = "Bits 0:3 - EXTI4 configuration" ]
     pub fn exti4(&mut self, value: u8) -> &mut Self {
@@ -544,6 +596,19 @@ pub struct Exticr3 {
 }
 
 impl Exticr3 {
+    pub fn read_bits(&self) -> u32 {
+        self.register.read()
+    }
+    pub unsafe fn modify_bits<F>(&mut self, f: F)
+        where F: FnOnce(&mut u32)
+    {
+        let mut bits = self.register.read();
+        f(&mut bits);
+        self.register.write(bits);
+    }
+    pub unsafe fn write_bits(&mut self, bits: u32) {
+        self.register.write(bits);
+    }
     pub fn modify<F>(&mut self, f: F)
         where for<'w> F: FnOnce(&Exticr3R, &'w mut Exticr3W) -> &'w mut Exticr3W
     {
@@ -607,7 +672,7 @@ pub struct Exticr3W {
 impl Exticr3W {
     # [ doc = r" Reset value" ]
     pub fn reset_value() -> Self {
-        Exticr3W { bits: 0u32 }
+        Exticr3W { bits: 0 }
     }
     # [ doc = "Bits 0:3 - EXTI8 configuration" ]
     pub fn exti8(&mut self, value: u8) -> &mut Self {
@@ -649,6 +714,19 @@ pub struct Exticr4 {
 }
 
 impl Exticr4 {
+    pub fn read_bits(&self) -> u32 {
+        self.register.read()
+    }
+    pub unsafe fn modify_bits<F>(&mut self, f: F)
+        where F: FnOnce(&mut u32)
+    {
+        let mut bits = self.register.read();
+        f(&mut bits);
+        self.register.write(bits);
+    }
+    pub unsafe fn write_bits(&mut self, bits: u32) {
+        self.register.write(bits);
+    }
     pub fn modify<F>(&mut self, f: F)
         where for<'w> F: FnOnce(&Exticr4R, &'w mut Exticr4W) -> &'w mut Exticr4W
     {
@@ -712,7 +790,7 @@ pub struct Exticr4W {
 impl Exticr4W {
     # [ doc = r" Reset value" ]
     pub fn reset_value() -> Self {
-        Exticr4W { bits: 0u32 }
+        Exticr4W { bits: 0 }
     }
     # [ doc = "Bits 0:3 - EXTI12 configuration" ]
     pub fn exti12(&mut self, value: u8) -> &mut Self {
@@ -754,6 +832,19 @@ pub struct Mapr2 {
 }
 
 impl Mapr2 {
+    pub fn read_bits(&self) -> u32 {
+        self.register.read()
+    }
+    pub unsafe fn modify_bits<F>(&mut self, f: F)
+        where F: FnOnce(&mut u32)
+    {
+        let mut bits = self.register.read();
+        f(&mut bits);
+        self.register.write(bits);
+    }
+    pub unsafe fn write_bits(&mut self, bits: u32) {
+        self.register.write(bits);
+    }
     pub fn modify<F>(&mut self, f: F)
         where for<'w> F: FnOnce(&Mapr2R, &'w mut Mapr2W) -> &'w mut Mapr2W
     {
@@ -848,7 +939,7 @@ pub struct Mapr2W {
 impl Mapr2W {
     # [ doc = r" Reset value" ]
     pub fn reset_value() -> Self {
-        Mapr2W { bits: 0u32 }
+        Mapr2W { bits: 0 }
     }
     # [ doc = "Bit 0 - TIM15 remapping" ]
     pub fn tim15_remap(&mut self, value: bool) -> &mut Self {
