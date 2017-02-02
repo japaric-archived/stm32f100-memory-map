@@ -5,11 +5,13 @@ extern crate volatile_register;
 pub mod afio;
 pub mod btim;
 pub mod gpio;
+pub mod gptim;
 pub mod rcc;
 pub mod usart;
 
 use afio::Afio;
 use btim::BTim;
+use gptim::GpTim;
 use gpio::Gpio;
 use rcc::Rcc;
 use usart::Usart;
@@ -33,10 +35,10 @@ const AFIO: usize = 0x40010000;
 // const IWDG: usize = 0x40003000;
 // const WWDG: usize = 0x40002c00;
 // const TIM1: usize = 0x40012c00;
-// const TIM2: usize = 0x40000000;
-// const TIM3: usize = 0x40000400;
-// const TIM4: usize = 0x40000800;
-// const TIM5: usize = 0x40000c00;
+const TIM2: usize = 0x40000000;
+const TIM3: usize = 0x40000400;
+const TIM4: usize = 0x40000800;
+const TIM5: usize = 0x40000c00;
 // const TIM12: usize = 0x40001800;
 // const TIM13: usize = 0x40001c00;
 // const TIM14: usize = 0x40002000;
@@ -133,6 +135,38 @@ pub fn rcc() -> &'static Rcc {
 
 pub unsafe fn rcc_mut() -> &'static mut Rcc {
     deref_mut(RCC)
+}
+
+pub fn tim2() -> &'static GpTim {
+    unsafe { deref(TIM2) }
+}
+
+pub unsafe fn tim2_mut() -> &'static mut GpTim {
+    deref_mut(TIM2)
+}
+
+pub fn tim3() -> &'static GpTim {
+    unsafe { deref(TIM3) }
+}
+
+pub unsafe fn tim3_mut() -> &'static mut GpTim {
+    deref_mut(TIM3)
+}
+
+pub fn tim4() -> &'static GpTim {
+    unsafe { deref(TIM4) }
+}
+
+pub unsafe fn tim4_mut() -> &'static mut GpTim {
+    deref_mut(TIM4)
+}
+
+pub fn tim5() -> &'static GpTim {
+    unsafe { deref(TIM5) }
+}
+
+pub unsafe fn tim5_mut() -> &'static mut GpTim {
+    deref_mut(TIM5)
 }
 
 pub fn tim6() -> &'static BTim {
